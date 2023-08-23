@@ -1,0 +1,62 @@
+[
+  {
+    "Name": "롱소드",
+    "Description": "평범한 롱소드입니다.",
+    "Category": 0,
+    "MeleePower": 5,
+    "MagicPower": 0,
+    "Defence": 0,
+    "MagicDefence": 0,
+    "Price": 100
+  },
+  {
+    "Name": "스태프",
+    "Description": "평범한 스태프입니다.",
+    "Category": 0,
+    "MeleePower": 0,
+    "MagicPower": 5,
+    "Defence": 0,
+    "MagicDefence": 0,
+    "Price": 100
+  },
+  {
+    "Name": "헬멧",
+    "Description": "평범한 헬멧입니다.",
+    "Category": 0,
+    "MeleePower": 0,
+    "MagicPower": 0,
+    "Defence": 3,
+    "MagicDefence": 3,
+    "Price": 100
+  },
+  {
+    "Name": "갑옷",
+    "Description": "평범한 갑옷입니다.",
+    "Category": 0,
+    "MeleePower": 0,
+    "MagicPower": 0,
+    "Defence": 5,
+    "MagicDefence": 5,
+    "Price": 100
+  },
+  {
+    "Name": "장갑",
+    "Description": "평범한 장갑입니다.",
+    "Category": 0,
+    "MeleePower": 0,
+    "MagicPower": 0,
+    "Defence": 2,
+    "MagicDefence": 2,
+    "Price": 100
+  },
+  {
+    "Name": "부츠",
+    "Description": "평범한 부츠입니다.",
+    "Category": 0,
+    "MeleePower": 0,
+    "MagicPower": 0,
+    "Defence": 2,
+    "MagicDefence": 2,
+    "Price": 100
+  }
+]
