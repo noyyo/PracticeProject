@@ -10,8 +10,8 @@ namespace ConsoleTextRPG
     public class Inventory
     {
         public List<Item>? Items;
-        private static readonly string _inventoryInfoFilePath = @"C:/Users/js022/Desktop/VisualStudioWorkSpace/PracticeProject/ConsoleTextRPG/inventoryInfo.txt";
-        private static readonly string _goldFilePath = @"C:/Users/js022/Desktop/VisualStudioWorkSpace/PracticeProject/ConsoleTextRPG/Gold.txt";
+        private static readonly string _inventoryInfoFilePath = @"C:/Users/js022/Desktop/VisualStudioWorkSpace/PracticeProject/ConsoleTextRPG/inventoryInfo.json";
+        private static readonly string _goldFilePath = @"C:/Users/js022/Desktop/VisualStudioWorkSpace/PracticeProject/ConsoleTextRPG/Gold.json";
         public int Gold;
         public Inventory()
         {

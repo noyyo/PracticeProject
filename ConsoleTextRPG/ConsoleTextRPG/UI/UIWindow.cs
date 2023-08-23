@@ -114,20 +114,12 @@ namespace ConsoleTextRPG.UI
             for (int row = 1; row < Points.GetLength(1) - 1; row++)
                 Points[Points.GetLength(0) - 1, row].Value = "│";
         }
-        public virtual void DrawLayout()
-        {
-            for (int column = 0; column < Points.GetLength(0); column++)
-                Points[column, 0].Draw();
-            for (int column = 0; column < Points.GetLength(0); column++)
-                Points[column, Points.GetLength(1) - 1].Draw();
-            for (int row = 1; row < Points.GetLength(1) - 1; row++)
-                Points[0, row].Draw();
-            for (int row = 1; row < Points.GetLength(1) - 1; row++)
-                Points[Points.GetLength(0) - 1, row].Draw();
-        }
         public void Draw()
         {
-            DrawLayout();
+            foreach (Point p in Points)
+            {
+                p.Draw();
+            }
             DrawComponents();
         }
         public void SetText(string Text, int startLocalPosX, int startLocalPosY, Alignment alignmnet = Alignment.Left)
@@ -153,7 +145,7 @@ namespace ConsoleTextRPG.UI
                     int strHalf = str.Length / 2;
                     int screenHalf = Width / 2;
 
-                    for (int i = 0; i< str.Length; i++)
+                    for (int i = 0; i < str.Length; i++)
                     {
                         Points[posX - strHalf + screenHalf, posY].Value = str.ElementAt(i).ToString();
                         posX++;
@@ -163,9 +155,10 @@ namespace ConsoleTextRPG.UI
                 }
                 else if (alignmnet == Alignment.Right)
                 {
-                    for (int i = str.Length -1; i >= 0 ; i--)
+                    posX = Width - posX;
+                    for (int i = str.Length - 1; i >= 0; i--)
                     {
-                        Points[posX + Width, posY].Value = str.ElementAt(i).ToString();
+                        Points[posX, posY].Value = str.ElementAt(i).ToString();
                         posX--;
                         if (isKorean(str.ElementAt(i)))
                             posX--;

@@ -1,4 +1,5 @@
-﻿using ConsoleTextRPG.UI;
+﻿using ConsoleTextRPG.Map;
+using ConsoleTextRPG.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -46,7 +47,7 @@ namespace ConsoleTextRPG
         public void SetConsoleWindow()
         {
             Console.SetBufferSize(BUFFER_WIDTH, BUFFER_HEIGHT);
-            Console.SetWindowSize(SCREEN_WIDTH, SCREEN_HEIGHT);
+            Console.SetWindowSize(SCREEN_WIDTH + 1, SCREEN_HEIGHT);
             Console.SetWindowPosition(0, 0);
             Console.OutputEncoding = Encoding.Unicode;
             Console.CursorVisible = false;
@@ -58,7 +59,7 @@ namespace ConsoleTextRPG
         }
 
         public void OpenUIWindow(string windowName)
-        {
+        {   
             UIWindow? window = windows.Find(window => window.WindowName == windowName);
             window?.OpenWindow();
             _openedWindow = window;
@@ -74,7 +75,14 @@ namespace ConsoleTextRPG
             switch (keyInput.Key)
             {
                 case ConsoleKey.I:
-                    OpenUIWindow("inventory");
+                    if (_openedWindow?.WindowName == "Inventory")
+                    {
+                        CloseUIWindow();
+                    }
+                    else
+                    {
+                        OpenUIWindow("Inventory");
+                    }
                     break;
                 default:
                     _openedWindow?.HandleKeyboardInput(keyInput);
@@ -88,10 +96,16 @@ namespace ConsoleTextRPG
         }
         private void LoadAllMap()
         {
-            ConsoleMap defaultMap = new ConsoleMap(SCREEN_WIDTH, SCREEN_HEIGHT);
-            maps.Add(defaultMap);
-            _currentMap = defaultMap;
+            VillageMap villageMap = new VillageMap(SCREEN_WIDTH, SCREEN_HEIGHT);
+            villageMap.LoadMap();
+            _currentMap = villageMap;
             // TODO : 맵 정보 파일 또는 코드에서 불러와서 List에 추가.
+        }
+        public bool isMovable(int posX, int posY)
+        {
+            if (_currentMap == null) 
+                return false;
+            return _currentMap.isMovable2D[posX, posY];
         }
     }
 }

@@ -6,7 +6,7 @@ namespace ItemGenerateTool
 
     public class ItemGenerateTool
     {
-        public static string ItemListPath = @"C:/Users/js022/Desktop/VisualStudioWorkSpace/PracticeProject/ConsoleTextRPG/items.txt";
+        public static string ItemListPath = @"C:/Users/js022/Desktop/VisualStudioWorkSpace/PracticeProject/ConsoleTextRPG/inventoryInfo.json";
 
         static void Main(string[] args)
         {

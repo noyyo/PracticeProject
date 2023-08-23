@@ -79,9 +79,10 @@ namespace ConsoleTextRPG.UI
                 }
                 else if (alignmnet == Alignment.Right)
                 {
+                    posX = Width - posX;
                     for (int i = str.Length - 1; i >= 0; i--)
                     {
-                        Points[Width - posX, posY].Value = str.ElementAt(i).ToString();
+                        Points[posX , posY].Value = str.ElementAt(i).ToString();
                         posX--;
                         if (isKorean(str.ElementAt(i)))
                             posX--;

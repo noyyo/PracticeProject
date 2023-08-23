@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Versioning;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ConsoleTextRPG
 {
 
+    [SupportedOSPlatform("windows")]
     public class Player : IDrawable
     {
         public string Name = "";
@@ -49,18 +51,35 @@ namespace ConsoleTextRPG
         }
         public void Move(Direction direction)
         {
+            int posX = _playerIcon.X;
+            int posY = _playerIcon.Y;
             switch (direction)
             {
                 case Direction.UP:
+                    if (!ScreenManager.I.isMovable(posX, posY - 1) || !ScreenManager.I.isMovable(posX + 1, posY - 1))
+                        return;
+                    new Point(posX, posY).Draw();
+                    new Point(posX + 1, posY).Draw();
                     _playerIcon.Y--;
                     break;
                 case Direction.DOWN:
+                    if (!ScreenManager.I.isMovable(posX, posY + 1) || !ScreenManager.I.isMovable(posX + 1, posY + 1))
+                        return;
+                    new Point(posX, posY).Draw();
+                    new Point(posX + 1, posY).Draw();
                     _playerIcon.Y++;
                     break;
                 case Direction.LEFT:
+                    if (!ScreenManager.I.isMovable(posX - 1, posY))
+                        return;
+                    new Point(posX, posY).Draw();
+                    new Point(posX + 1, posY).Draw();
                     _playerIcon.X--;
                     break;
                 case Direction.RIGHT:
+                    if (!ScreenManager.I.isMovable(posX + 2, posY))
+                        return;
+                    new Point(posX, posY).Draw();
                     _playerIcon.X++;
                     break;
                 default:

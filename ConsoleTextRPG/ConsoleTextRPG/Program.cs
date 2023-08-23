@@ -1,10 +1,10 @@
-﻿using ConsoleTextRPG.UI;
+﻿using ConsoleTextRPG.Map;
+using ConsoleTextRPG.UI;
 using Newtonsoft.Json;
 using System;
 using System.ComponentModel;
 using System.Runtime.Versioning;
 using System.Text;
-using System.Text.Json;
 
 namespace ConsoleTextRPG
 {
@@ -20,7 +20,11 @@ namespace ConsoleTextRPG
         {
             GameManager gameManager = new GameManager();
             gameManager.Init();
-            
+            gameManager.Update();
+
+            //VillageMap map = new VillageMap(200, 50);
+            //map.SaveMap();
+
         }
     }
     public class Entrance
